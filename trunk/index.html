@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dow Jones Interpolation Demonstration</title>
+    {% include "views/main.head.html" %}
+</head>
+
+<body>
+
+<header>
+  <h1> Interactive Interpolation Demonstration </h1>
+</header>
+{% include "views/main.navigation.html" %}
+
+
+<section id="graph">
+    <div id="tooltip"></div>
+    <div id="wrapper">
+        <div id="placeholder" style="width:100%; height:400px;"></div>
+        <div id="overview" style="width:600px;height:20px"></div>
+        <div id="grapherror" style="display:none">
+            <p class="error"> 
+                <span></span>
+                <a id="close">Close</a>
+            </p>
+        </div>
+    </div>
+</section>
+
+
+    {% include "views/graph.settings.html" %}
+
+    {% include "views/fitting.options.html" %}
+
+    {% include "views/additional.info.html" %}
+
+<footer>
+
+</footer>
+
+</body>
+</html>
+
