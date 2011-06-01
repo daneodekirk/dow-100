@@ -31,6 +31,7 @@ class Mean:
     def mean(self):
         data = [ self.threes(i, 3) for i in range(len(self.data)) 
                         if 0 < i < len(self.data)-1 ] 
-        newdata = [ self.fours(i, 3) for i in range(len(data)) 
-                        if 0 < i < len(data)-1 ] 
-        return newdata
+        return data
+        #[TODO] Four smoothing causing an error
+        #newdata = [ self.fours(i, 3) for i in range(len(data)) 
+                        #if 0 < i < len(data)-1 ] 
