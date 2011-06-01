@@ -104,13 +104,12 @@ class JSONMethods:
         return {'points': mean }
 
     def chebyshev(self, sample=60, *args, **kwargs):
+        #[TODO] this needs work
         data = self.__parse(sample)
         endpoints = [0,len(self.data)-1]
         mp.dps = 15; mp.pretty = True
-        #poly, err = chebyfit(self.test, endpoints, kwargs.get('degree'), error=True)
         poly, err = chebyfit(self.test, endpoints, 15, error=True)
 
-##this feelds wrong
         end = float(data[-1][1])
         step = end/len(data)
 
@@ -133,7 +132,6 @@ class JSONMethods:
         return float(self.data[x][1])
 
     def __parse(self, sample=60):
-        #logging.debug('sample is %d' % sample)
         f  = open('dj-100.txt', 'r')
 
         dj = [line.rstrip().split(',') for line in f]
