@@ -15,9 +15,14 @@ class Median:
         del self.data[i-s2:i+s]
 
         points = [float(item[1]) for item in info]
-        added = sum(points)
+        added = sorted(points)
+        if len(added) > 0:
+            logging.debug(added[-1])
+            added = added[-1]
 
-        return [time, added/self.chunk]
+        #return [time, added/self.chunk]
+        return [time, added]
+
 
     def endpoint(self, i):
         n = 1 if i == 0 else -1
@@ -29,7 +34,7 @@ class Median:
         medians = [ self.average(i) for i in range(len(self.data)) 
                         if 0 < i < len(self.data)-1 ] 
 
-        medians[0][0] = self.endpoint(0)
-        medians[-1][0] = self.endpoint(len(medians) - 1)
+        #medians[0][0] = self.endpoint(0)
+        #medians[-1][0] = self.endpoint(len(medians) - 1)
         return medians
 
