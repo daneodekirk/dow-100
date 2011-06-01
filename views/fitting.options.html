@@ -1,0 +1,14 @@
+<script type="text/javascript" src="/static/js/fitting.options.js"></script>
+<section class="options" id="options"> 
+    <h3> Fitting Types: </h3>
+  <ul>
+
+      {% for graph in graphs %}
+      <li>
+      <input id="{{graph.id}}" {{graph.disabled}} name="graph" type="checkbox" color="{{graph.color}}">
+        <label for="{{graph.id}}">{{graph.name}}</label>
+      </li>
+      {% endfor %}
+
+  </ul>
+</section>

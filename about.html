@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title }}</title>
+    {% include "views/main.head.html" %}
+</head>
+
+<body>
+
+<header>
+    <h1> {{ title }} </h1>
+</header>
+{% include "views/main.navigation.html" %}
+
+<section id="about">
+<h3>
+    Overview
+</h3>
+    <p>
+    This is an application designed to graph the Dow Jones closing price over the past century.
+    The information is parsed from this <a href="/static/dj-100.txt">text file</a> 
+    - which is also linked to by through the Data link in the navigation above.
+    </p>
+
+    <p>
+    The first several lines of the text file are shown below. 
+    The data is ordered as follows:
+    </p>
+    <div class="prepend-13">[year][month][day],[price]</div>
+
+    <pre class="prepend-12">
+        000103,66.61
+        000104,67.15
+        000105,66.71
+        000106,66.02
+        000108,66.41
+        000109,64.99
+        000110,64.14
+    </pre>
+
+    <p>
+    Unfortunately, only the last two digits of each year are given which creates a miniature "Y2K" issue.
+    The original text file was found at <a href="http://www.analyzeindices.com/">http://www.analyzeindices.com/</a>.
+    </p>
+
+    <h3>
+        Code
+    </h3>
+    <p>
+        The code for this application is open sourced and accessible <a href="####">here</a>.
+        Whenever a change setting change is made (either to the graph or for a specific plot),
+            a request is made to the server. 
+        The server then uses the request to parse the data 
+            and returns the relevant result to the browser.
+       <div class="notice"> 
+           <span class="prepend-4">
+            The data points are limited from the original 29356 to a number more capable of being
+                rendered by the browser's JavaScript. 
+           </span>
+       </div>
+    </p>
+
+    <h3>
+        What can be done
+    </h3>
+    <p>
+    Currently there are three main features. 
+    Firstly, a user can sample a desired number of data points.
+    This is done through the slider on the main page.
+    The sampled points render on the graph 
+        - along with the rendering times for both the browser and the server.
+    It is these points that are used as the data for the graphs.
+    The second feature is the ability to plot a Running Median of the data points selected by the user.
+    The third feature is the ability to plot plotting a 3-4 Smooth of the data points selected by the user.
+    <div class="notice"> 
+       <span class="prepend-8">
+           A Chebyshev Interpolation plot is currently implemented in an alpha form as well.
+       </span>
+    </div>
+    </p>
+
+    <h3>
+        Technology used
+    </h3>
+    <p>
+    This page is powered by 
+        <a href="http://code.google.com/appengine/">Google App Engine</a>.
+        The interface uses <a href="http://jquery.com">jQuery</a> 
+            and <a href="http://jqueryui.com">jQuery UI</a>
+        and the graph is powered by <a href="http://code.google.com/p/flot/">Flot</a>.
+        The code is open sourced as <a href="http://code.google.com/p/dow-100/">Google Code</a>. <br/>
+
+        The <a href="http://code.google.com/p/mpmath/">mpmath</a> python library is packaged as well although not fully integrated and used.
+    </p>
+</section>
+
+</body>
+</html>
+

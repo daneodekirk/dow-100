@@ -1,0 +1,13 @@
+<section id="fittingoverview" class="options">
+    <h3> Fitting Overview: </h3>
+    {% for graph in graphs %}
+    <div class="{{graph.id}}" style="display:none">
+        <h4> {{graph.name}} </h4>
+        {{graph.desc}} 
+        {% if graph.id == "chebyshev" %}
+        <p>Of Degree: <input disabled id="chebyshevinput" type="text" value="15"></input></p>
+        <p>Value at :  <input disabled id="chebyshevinput" type="text" value=""></input></p>
+        {% endif %}
+    </div>
+    {% endfor %}
+</section>

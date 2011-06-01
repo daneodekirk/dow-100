@@ -1,0 +1,123 @@
+body {
+    font-family: 'Brawler', arial, serif;
+    background-color: #DDEEF6;
+}
+h1,h2,h3,h4,h5 {
+    margin:0;
+    padding:0;
+    color: #fefefe;
+    text-shadow: 0 1px 0 #;
+}
+a, a:visited {
+    color: #fefefe;
+}
+ul {
+    list-style:none;
+    padding:0;
+}
+li {
+    border-bottom: thin solid thistle;
+    margin-bottom: 0;
+    padding: 3px 0 0;
+
+}
+p {
+    margin: 1em 0 1.5em 
+}
+label {
+    font-weight: normal;
+    color: #2953BC;
+}
+header, nav, #graph, #about, #wrapper, .options {
+    -moz-border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    -moz-box-shadow: 2px 2px 5px rgba(88, 88, 88, 0.5);
+    -webkit-box-shadow: 2px 2px 5px rgba(88, 88, 88, 0.5);
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 2px 2px 5px rgba(88, 88, 88, 0.5);
+}
+header, nav {
+    background-color: #558ABB;
+    margin-bottom: 10px;
+    padding: 1%;
+    margin: 1%;
+    float:left;
+}
+nav {
+    float: right;
+    margin-right: 8%;
+}
+nav a {
+    font-size:2em;
+    padding: 0 30px;
+}
+nav a:hover {
+    color:#C5C1BB;
+}
+#graph, #about {
+    float: left;
+    width:91%;
+    background-color:#eee;
+    margin:0 1% 0 1%;
+}
+#wrapper {
+    margin: 15px;
+    background-color:white;
+}
+.options {
+    float:left;
+    background-color:#eee;
+    height: 140px;
+    margin: 1%;
+    padding: 0 2%;
+    width: 25%;
+    position:relative;
+}
+.options h3, .options label, .options h4{
+    color: #3D44B5;
+    padding: 8px 0px;
+}
+.error a {
+    float: right;
+    text-decoration: none;
+}
+#slidervalue, #sliderpoints, #rendertime, #pytime{
+    color: #2953BC;
+}
+#fittingoverview p {
+    padding:0;
+    margin:0;
+}
+#additionalinfo a {
+    color:#0066CC;
+}
+#additionalinfo img {
+    position: absolute;
+    right: 5px;
+    top: 105px;
+}
+#tooltip {
+    position: absolute;
+    display: none;
+    border: 1px solid #fdd;
+    padding: 2px;
+    background-color: #fee;
+}
+/*** About page **/
+#about {
+    padding:1em;
+    font-size: 1.3em;
+}
+#about h3 {
+    color: #5599BB;
+}
+#about p {
+    margin: 1em;
+}
+#about a {
+    color: #000;
+}
+#about a:hover {
+    color: #0066CC;
+}
+
