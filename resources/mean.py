@@ -33,4 +33,4 @@ class Mean:
                         if 0 < i < len(self.data)-1 ] 
         newdata = [ self.fours(i, 3) for i in range(len(data)) 
                         if 0 < i < len(data)-1 ] 
-        return data
+        return newdata
