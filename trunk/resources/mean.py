@@ -1,36 +1,30 @@
 import math
+import logging
 
 class Mean:
     def __init__(self, data):
         self.data = data 
-        self.cache = []
-        self.output = []
-    
-    def threes(self, i, s):
-        info = self.data[i:i+3]
-        time = self.data[i][0]
-
-        points = [float(item[1]) for item in info]
-        added = sum(points)/3
-
-        self.cache.append([time, added])
-
-        return [time, added]
-
-    def fours(self, i, s):
-        info = self.cache[i:i+4]
-        time = self.cache[i][0]
-
-        points = [item[1] for item in info]
-        added = sum(points)/4
-
-        self.output.append([added, time])
-
-        return [time, added]
 
     def mean(self):
-        data = [ self.threes(i, 3) for i in range(len(self.data)) 
-                        if 0 < i < len(self.data)-1 ] 
-        newdata = [ self.fours(i, 3) for i in range(len(data)) 
-                        if 0 < i < len(data)-1 ] 
-        return newdata
+        """ This runs through the data set and calculates a
+            running mean. Currently returns a 3-4 smooth.
+        """
+        #remove timestamp
+        d = [ float(item[1]) for item in self.data]
+
+        #mean over sets of 3 while checking the chunk size
+        three = [ sum(d[i-1:i+2])/3 for i in range(len(d)) 
+                    if len(d[i-1:i+2]) == 3 ] 
+                
+        #mean of the sets of 3 over sets of 4
+        threefour = [ sum(three[i-1:i+3])/4 for i in range(len(three)) ] 
+
+        #put timestamp back in 
+        points = [ [self.data[i][0], threefour[i-1]]
+                        for i in range(len(threefour)) ]
+
+        #the first and last points seem chaotic
+        points.pop(-1)
+        points.pop(0)
+
+        return points
