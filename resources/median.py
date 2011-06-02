@@ -10,9 +10,7 @@ class Median:
         """ Caculates the endpoints of the running median 
             based on the assumption of using chunks of 3
         """
-        
         n = 1 if i == 0 else -1
-        #note: weighted value is already a median
         f1, g1, g2 = self.data[i][0], self.data[i+n][0], self.data[i+(2*n)][0]
         return sorted([f1, g1, (3 * g1 - 2 * g2)])[1]
 
