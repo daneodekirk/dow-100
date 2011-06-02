@@ -132,24 +132,32 @@ class JSONMethods:
         return float(self.data[x][1])
 
     def __parse(self, sample=60):
+        """ Parses the dow jones text file into a list """
         f  = open('dj-100.txt', 'r')
-
         dj = [line.rstrip().split(',') for line in f]
         dj = [dj[i] for i in range(len(dj)) 
                         if i % sample == 0 and 0 < i < len(dj)]
-
         return self.__normalize(dj)
 
     def __normalize(self, dj):
+        """ Normalized the year in the data to retrun 
+            a unix timestamp for even pre-1970 years.
+            Also handles the Y2K issue.
+        """
         epoch = datetime(1970, 1, 1)
+        cache = 1900
+        prefix = '19' 
         ndj = []
         for date in dj:
-            l = '19'+date[0]
-            if(int(l[:4]) > 1907):
-                d = datetime( int(l[:4]), int(l[4:6]), int(l[6:8]))
-                diff = d-epoch
-                t = diff.days * 24 * 3600 + diff.seconds
-                ndj.append([t*1000, date[1]])
+            l = prefix+date[0]
+            if int(l[:4]) < cache:
+                prefix = '20'
+                l = prefix+date[0]
+            cache = int(l[:4])
+            d = datetime(int(l[:4]), int(l[4:6]), int(l[6:8]))
+            diff = d-epoch
+            t = diff.days * 24 * 3600 + diff.seconds
+            ndj.append([t*1000, date[1]])
         return ndj
 
 class AboutPage(webapp.RequestHandler):
