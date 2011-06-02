@@ -135,7 +135,7 @@ class JSONMethods:
         """ Parses the dow jones text file into a list """
         f  = open('dj-100.txt', 'r')
         dj = [line.rstrip().split(',') for line in f]
-        dj = [dj[i] for i in range(len(dj)) 
+        dj = [dj[i] for i in range(len(dj)-1) 
                         if i % sample == 0 and 0 < i < len(dj)]
         return self.__normalize(dj)
 
