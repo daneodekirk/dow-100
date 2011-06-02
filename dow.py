@@ -93,13 +93,13 @@ class JSONMethods:
 
     def medians(self, sample=60, **kwargs):
         data = self.__parse(sample)
-        logging.debug('Medians: length of sample data is %d' % len(data))
+        #logging.debug('Medians: length of sample data is %d' % len(data))
         median = Median(data, 3).median()
         return {'points': median}
         
     def means(self, sample=60, **kwargs):
         data = self.__parse(sample)
-        logging.debug('Means: length of sample data is %d' % len(data))
+        #logging.debug('Means: length of sample data is %d' % len(data))
         mean = Mean(data).mean()
         return {'points': mean }
 
@@ -113,8 +113,8 @@ class JSONMethods:
         end = float(data[-1][1])
         step = end/len(data)
 
-        for i in range(len(data)):
-            logging.debug((i*step))
+        #for i in range(len(data)):
+            #logging.debug((i*step))
 
                 
         points = [[nstr(polyval(poly, i*step)), i*step] for i in range(len(data))
