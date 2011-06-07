@@ -7,6 +7,9 @@
       <li>
       <input id="{{graph.id}}" {{graph.disabled}} name="graph" type="checkbox" color="{{graph.color}}">
         <label for="{{graph.id}}">{{graph.name}}</label>
+        {% if graph.beta %}
+        <span class="info" style="padding:0 1em;">BETA</span> 
+        {% endif %}
       </li>
       {% endfor %}
 
