@@ -9,10 +9,10 @@ types = [
         'desc' : '''
                 This is a standard 3-4 graph.
         '''},
+    {'name': 'Discrete Fourier Transform', 'id':'fourier', 'color':'red', 
+        'disabled':'', 'beta':True,
+        'desc' : ''},
     {'name': 'Chebyshev Interpolation', 'id':'chebyshev', 'color':'blue',
         'disabled':'disabled', 'beta':True,
         'desc' : ''' '''},
-    {'name': 'Fourier Transform', 'id':'fourier', 'color':'red', 
-        'disabled':'', 'beta':True,
-        'desc' : ''},
 ]
