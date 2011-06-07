@@ -16,6 +16,7 @@ from django.utils import simplejson
 
 from resources.median import Median 
 from resources.mean import Mean
+from resources.fourier import Fourier
 import resources.graphs as graph
 
 from mpmath import *
@@ -88,8 +89,10 @@ class JSONMethods:
         data = self.__parse(sample)
         return {'points': data}
         
-    def fourier(self, *args):
-        pass
+    def fourier(self, sample=60, **kwargs):
+        data = self.__parse(sample)
+        dft = Fourier(data).dft()
+        return {'points':dft}
 
     def medians(self, sample=60, **kwargs):
         data = self.__parse(sample)
